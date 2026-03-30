@@ -43,10 +43,12 @@ namespace lb17
         }
         public override double Area()
         {
-            double p = Perimetr()/2;
-            double c = Perimetr() - SizeOfStorona1 - SizeOfStorona1;
+            double radians = CytMijStoronami * Math.PI / 180;
+
+            double c = Math.Sqrt(Math.Pow(SizeOfStorona1, 2) + Math.Pow(SizeOfStorona2, 2) - 2 * SizeOfStorona1 * SizeOfStorona2 * Math.Cos(radians));
+            double p = (SizeOfStorona1 + SizeOfStorona2 + c) / 2;
             double h = (2 / SizeOfStorona1) * Math.Pow((p * (p - SizeOfStorona1)*(p - SizeOfStorona2)*(p-c)), 0.5);
-            return (1/2)*SizeOfStorona1*h;
+            return (0.5)*SizeOfStorona1*h;
         }
 
     }
